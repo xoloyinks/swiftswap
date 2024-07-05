@@ -67,6 +67,7 @@ const FormSteps = () => {
       buyerEmail: '',
       buyerPhone: '',
       deliveryAddress: '',
+      buyerApt: '',
       itemPrice: '',
       itemDescription: '',
       itemLink: '',
@@ -144,6 +145,18 @@ const FormSteps = () => {
             <h2 className="text-2xl font-semibold mb-4">Order Created Successfully!</h2>
             <p>Your order has been created successfully. Your confirmation number is:</p>
             <p className="text-lg font-bold">{confirmationNumber}</p>
+            <div className='overflow-y-auto h-40'>
+              <div className="bg-yellow-100 p-4 rounded mt-4">
+                <p><strong>Instructions:</strong> Once you send the message to the seller, they will schedule a convenient date and time for us to pick up the item. You will receive a notification and the total amount to pay.</p>
+              </div>
+              <div className="mt-4 p-4 border bg-white border-gray-300 rounded">
+                <p><strong>Copy this Message, and send to Seller:</strong></p>
+                <p id="messageToSeller">
+                  I’m interested in purchasing your product(s). I’ll be using SwiftSwap to handle the pick-up and delivery. They are a trusted delivery service that specializes in marketplace transactions. Could you please select a convenient date and time for the pick-up and specify your preferred payment method using this link: <br /><br /><a href={uniqueLink} target="_blank" rel="noopener noreferrer">{uniqueLink}</a><br /><br /> Thanks,
+                </p>
+                <button type="button" onClick={() => copyMessage('messageToSeller')} className="mt-2 py-2 px-4 bg-blue-500 text-white rounded">Copy Message</button>
+              </div> 
+            </div>           
             <button onClick={handleReset} className="mt-4 py-2 px-4 bg-[#023e8a] text-white rounded">Close</button>
           </div>
         </div>
@@ -171,6 +184,7 @@ const FormSteps = () => {
                   className={`w-full p-2 border 'border-gray-300'} rounded mb-4`}
                   placeholder="Delivery Address"
                 />
+                <input type="text" name="buyerApt" value={formData.buyerApt} onChange={handleChange} placeholder="Apt # (Optional)" className={`w-full p-2 border ${errors.buyerApt ? 'border-red-500' : 'border-gray-300'} rounded mb-4`} required />
               </div>
             )}
             {currentStep === 2 && (
@@ -188,22 +202,13 @@ const FormSteps = () => {
                 <p><strong>Buyer Email:</strong> {formData.buyerEmail}</p>
                 <p><strong>Buyer Phone:</strong> {formData.buyerPhone}</p>
                 <p><strong>Delivery Address:</strong> {formData.deliveryAddress}</p>
+                <p><strong>Delivery Apt:</strong> {formData.buyerApt}</p>
                 <p><strong>Item Description:</strong> {formData.itemDescription}</p>
                 <p><strong>Item Price:</strong> {formData.itemPrice}</p>
                 <p><strong>Item Link:</strong> <a href={formData.itemLink} target="_blank" rel="noopener noreferrer">{formData.itemLink}</a></p>
                 {/* <p><strong>Distance:</strong> {formData.distance} miles</p> */}
                 <p><strong>Rate per Mile:</strong> $1.50</p>
                 {/* <p><strong>Total Price:</strong> ${totalPrice}</p> */}
-                <div className="bg-yellow-100 p-4 rounded mt-4">
-                  <p><strong>Instructions:</strong> Once you send the message to the seller, they will schedule a convenient date and time for us to pick up the item. You will receive a notification and the total amount to pay.</p>
-                </div>
-                <div className="mt-4 p-4 border bg-white border-gray-300 rounded">
-                  <p><strong>Message to Seller:</strong></p>
-                  <p id="messageToSeller">
-                    I’m interested in purchasing your product(s). I’ll be using SwiftSwap to handle the pick-up and delivery. They are a trusted delivery service that specializes in marketplace transactions. Could you please select a convenient date and time for the pick-up and specify your preferred payment method using this link: <br /><br /><a href={uniqueLink} target="_blank" rel="noopener noreferrer">{uniqueLink}</a><br /><br /> Thanks,
-                  </p>
-                  <button type="button" onClick={() => copyMessage('messageToSeller')} className="mt-2 py-2 px-4 bg-blue-500 text-white rounded">Copy Message</button>
-                </div>
               </div>
             )}
             <div className="flex justify-between">

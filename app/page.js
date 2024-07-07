@@ -14,11 +14,11 @@ export default function Home() {
     <div>
       <NavBar />
       <div className="pt-16 flex flex-col md:flex-row items-center justify-center bg-gray-100">
-        <div className="w-full md:w-1/2 p-20">
+        <div className="w-full md:w-1/2 p-8">
           <h1 className="text-3xl text-[#023e8a] font-bold mb-4">SwiftSwap Deliveries</h1>
           <p className="text-lg">Delivering your second-hand treasures with care and efficiency. Fill in the form to schedule your delivery.</p>
         </div>
-        <div className="w-full md:w-1/2 p-20">
+        <div className="w-full md:w-1/2 p-8">
           <FormSteps />
         </div>
       </div>

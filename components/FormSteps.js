@@ -175,8 +175,14 @@ const FormSteps = () => {
               <div>
                 <h2 className="text-xl font-semibold mb-4">Buyer Information</h2>
                 <input type="text" name="buyerName" value={formData.buyerName} onChange={handleChange} placeholder="Buyer Name" className={`w-full p-2 border ${errors.buyerName ? 'border-red-500' : 'border-gray-300'} rounded mb-4`} required />
-                <input type="email" name="buyerEmail" value={formData.buyerEmail} onChange={handleChange} placeholder="Buyer Email" className={`w-full p-2 border ${errors.buyerEmail ? 'border-red-500' : 'border-gray-300'} rounded mb-4`} required />
-                <input type="text" name="buyerPhone" value={formData.buyerPhone} onChange={handleChange} placeholder="Buyer Phone" className={`w-full p-2 border ${errors.buyerPhone ? 'border-red-500' : 'border-gray-300'} rounded mb-4`} required />
+                <div class="flex flex-wrap -mx-3">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <input type="email" name="buyerEmail" value={formData.buyerEmail} onChange={handleChange} placeholder="Buyer Email" className={`w-full p-2 border ${errors.buyerEmail ? 'border-red-500' : 'border-gray-300'} rounded mb-4`} required />
+                  </div>
+                  <div class="w-full md:w-1/2 px-3">
+                    <input type="text" name="buyerPhone" value={formData.buyerPhone} onChange={handleChange} placeholder="Buyer Phone" className={`w-full p-2 border ${errors.buyerPhone ? 'border-red-500' : 'border-gray-300'} rounded mb-4`} required />
+                  </div>
+                </div>
                 <AddressAutocomplete
                   name="deliveryAddress"
                   value={formData.deliveryAddress}
@@ -184,7 +190,11 @@ const FormSteps = () => {
                   className={`w-full p-2 border 'border-gray-300'} rounded mb-4`}
                   placeholder="Delivery Address"
                 />
-                <input type="text" name="buyerApt" value={formData.buyerApt} onChange={handleChange} placeholder="Apt # (Optional)" className={`w-full p-2 border ${errors.buyerApt ? 'border-red-500' : 'border-gray-300'} rounded mb-4`} required />
+                <div class="flex flex-wrap -mx-3">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <input type="text" name="buyerApt" value={formData.buyerApt} onChange={handleChange} placeholder="Apt # (Optional)" className={`w-full p-2 border ${errors.buyerApt ? 'border-red-500' : 'border-gray-300'} rounded mb-4`} required />
+                  </div>
+                </div>
               </div>
             )}
             {currentStep === 2 && (

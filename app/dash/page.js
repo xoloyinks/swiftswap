@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Unschedule_Box from './Unschedule';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
+import SellerPartners from './SellerPartners';
 
 const Dashboard = () => {
   const [deliveries, setDeliveries] = useState([]);
@@ -227,7 +228,7 @@ const Dashboard = () => {
                         <option value="Pending">Pending</option>
                         <option value="On Route">On Route</option>
                         <option value="Delivered">Delivered</option>
-                        <option value="Cancel">Cancel</option>
+                        {/* <option value="Cancel">Cancel</option> */}
                         <option value="Reschedule">Reschedule</option>
                       </select>
                     </td>
@@ -271,7 +272,7 @@ const Dashboard = () => {
               </div>
               <div className="mt-4 flex justify-end space-x-4">
                 <button onClick={() => handleCancelDelivery(selectedDelivery.id)} className="py-2 px-4 bg-red-500 text-white rounded hover:bg-red-700">Cancel Delivery</button>
-                <button onClick={() => setIsRescheduleModalOpen(true)} className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700">Reschedule Delivery</button>
+                {/* <button onClick={() => setIsRescheduleModalOpen(true)} className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700">Reschedule Delivery</button> */}
               </div>
             </div>
           </div>
@@ -466,13 +467,13 @@ const Dashboard = () => {
                           });
                           setIsEditOrderModalOpen(true);
                         }}
-                        className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"
+                        className="bg-blue-500 text-white px-2 py-1 rounded"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDeleteOrder(order.id)}
-                        className="py-2 px-4 bg-red-500 text-white rounded hover:bg-red-700"
+                        className="bg-red-500 text-white px-2 py-1 rounded"
                       >
                         Delete
                       </button>
@@ -482,6 +483,9 @@ const Dashboard = () => {
               </tbody>
             </table>
           </div>
+        </div>
+        <div className="bg-white p-6 rounded mb-8">
+          <SellerPartners />
         </div>
       </div>
       <Footer />

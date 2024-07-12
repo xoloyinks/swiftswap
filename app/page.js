@@ -34,10 +34,6 @@ export default function Home() {
           <p className="text-base font-semibold text-center text-black md:w-1/2">Delivering your second-hand treasures with care and efficiency. Fill in the form to schedule your delivery.</p>
           {/* Mobile View truck icon */}
           <TbTruckDelivery  className='absolute text-[200px]  block md:hidden -bottom-8 z-30 -left-10 text-[#023e8a] opacity-5' />
-
-          {/* <button >
-              Fill Form
-          </button> */}
           <AlertDialog>
           <AlertDialogTrigger className='hidden px-16 rounded-xl py-3 text-sm text-white font-semibold md:block my-10 bg-gradient-to-br from-[#023e8a] to-[#023d8a97] hover:bg-[#023e8a]'>
               Fill Form

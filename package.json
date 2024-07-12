@@ -29,6 +29,7 @@
     "react-icons": "^5.2.1",
     "react-places-autocomplete": "^7.3.0",
     "react-select": "^5.8.0",
+    "square": "^37.1.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "use-places-autocomplete": "^4.0.1"

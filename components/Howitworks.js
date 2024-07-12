@@ -6,31 +6,34 @@ import React from 'react';
 
 const HowItWorks = () => {
   return (
-    <div className="">
+    <div className="py-8">
       <div className="">
-        <div className="bg-white p-8 space-y-8">
-        <h1 className="text-2xl font-bold text-center mb-8">How It Works for Buyers</h1>
+        <div className="p-8 space-y-8 bg-white">
+        <h1 className="mb-8 text-2xl font-bold text-center text-[#023e8a]">How It Works for Buyers</h1>
           <div className="space-y-4">
-            <div className="flex flex-col md:flex-row md:space-x-4 items-center">
-              <div className="flex-1 p-4">
-                {/* <img src='./img/step1.svg' alt="Create an order" className="w-full h-48 object-contain" /> */}
-                <h3 className="text-lg font-semibold mb-2 text-center">1. Create an Order</h3>
-                <p className="text-center text-sm">Provide your information, the delivery address, and details about the item you want to purchase.</p>
+            <div className="flex flex-col md:flex-row md:space-x-4 md:items-start md:px-12">
+              <div className="flex flex-col items-center justify-center flex-1 p-4">
+                {/* <img src='./img/step1.svg' alt="Create an order" className="object-contain w-full h-48" /> */}
+                <span className='w-[40px] h-[40px] text-white rounded-full flex items-center justify-center bg-[#023e8a] my-2'>1</span>
+                <h3 className="mb-2 text-lg font-semibold text-center">Create an Order</h3>
+                <p className="text-sm text-center">Provide your information, the delivery address, and details about the item you want to purchase.</p>
               </div>
-              <div className="flex-1 p-4">
-                {/* <img src={Step2} alt="Send a custom message" className="w-full h-48 object-contain" /> */}
-                <h3 className="text-lg font-semibold mb-2 text-center">2. Send a Custom Message</h3>
-                <p className="text-center text-sm">Copy the pre-written message and send it to the seller to coordinate the pick-up time and payment method.</p>
+              <div className="flex flex-col items-center justify-center flex-1 p-4">
+                <span className='w-[40px] h-[40px] text-white rounded-full flex items-center justify-center bg-[#023e8a] my-2'>2</span>
+
+                <h3 className="mb-2 text-lg font-semibold text-center">Send a Custom Message</h3>
+                <p className="text-sm text-center">Copy the pre-written message and send it to the seller to coordinate the pick-up time and payment method.</p>
               </div>
-              <div className="flex-1 p-4">
-                {/* <img src={Step3} alt="Schedule pick-up" className="w-full h-48 object-contain" /> */}
-                <h3 className="text-lg font-semibold mb-2 text-center">3. Schedule Pick-Up</h3>
-                <p className="text-center text-sm">The seller will schedule a convenient date and time for us to pick up the item.</p>
+              <div className="flex flex-col items-center justify-center flex-1 p-4">
+                <span className='w-[40px] h-[40px] text-white rounded-full flex items-center justify-center bg-[#023e8a] my-2'>3</span>
+
+                <h3 className="mb-2 text-lg font-semibold text-center">Schedule Pick-Up</h3>
+                <p className="text-sm text-center">The seller will schedule a convenient date and time for us to pick up the item.</p>
               </div>
-              <div className="flex-1 p-4">
-                {/* <img src={Step4} alt="Sit back and relax" className="w-full h-48 object-contain" /> */}
-                <h3 className="text-lg font-semibold mb-2 text-center">4. Sit Back and Relax</h3>
-                <p className="text-center text-sm">Let SwiftSwap do the rest and bring the package to you.</p>
+              <div className="flex flex-col items-center justify-center flex-1 p-4">
+                <span className='w-[40px] h-[40px] text-white rounded-full flex items-center justify-center bg-[#023e8a] my-2'>4</span>
+                <h3 className="mb-2 text-lg font-semibold text-center">Sit Back and Relax</h3>
+                <p className="text-sm text-center">Let SwiftSwap do the rest and bring the package to you.</p>
               </div>
             </div>
           </div>

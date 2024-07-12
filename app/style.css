@@ -1,0 +1,33 @@
+.button_effect:hover{
+    cursor: pointer;
+    transition: 0.5s;
+}
+.button_effect ::after{
+    content: '';
+    text-align: right;
+    display: flex;
+    align-items: center;
+    font-size: large;
+    position: absolute;
+    color: white;
+    left: 0;
+    right: -40px;
+    top: 0;
+    bottom:0;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 20px;
+    background-color: white;
+    transform: translateX(-280px);
+    transition: 0.4s;
+    z-index: -1;
+    cursor: pointer;
+}
+
+.button_effect:hover ::after{
+    /* z-index: 0; */
+    transform: translateX(0px);
+    /* display: none; */
+}
+.button_effect{
+    z-index: 1;
+}

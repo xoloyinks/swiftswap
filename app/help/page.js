@@ -48,19 +48,19 @@ const HelpFAQ = () => {
   return (
     <div className="">
       <NavBar />
-      <div className="pt-16 min-h-screen bg-gray-100 p-8">
-        <h1 className="text-3xl font-bold text-center mb-8">Help & FAQ</h1>
-        <div className="bg-white p-6 rounded space-y-4">
+      <div className="min-h-screen p-8 bg-gray-100 pt-28 md:pt-28">
+        <h1 className="mb-8 text-3xl font-bold text-center">Help & FAQ</h1>
+        <div className="p-6 space-y-4 bg-white rounded md:w-6/12 md:flex md:flex-col md:mx-auto">
           {questionsAndAnswers.map((item, index) => (
-            <div key={index} className="border-b border-gray-200 pb-4">
+            <div key={index} className="pb-4 border-b border-gray-200">
               <button
                 onClick={() => handleToggle(index)}
-                className="w-full text-left text-lg font-semibold flex justify-between items-center focus:outline-none"
+                className="flex items-center justify-between w-full text-lg font-semibold text-left focus:outline-none"
               >
                 {item.question}
                 <span>{activeIndex === index ? '-' : '+'}</span>
               </button>
-              {activeIndex === index && <p className="mt-2 text-gray-600">{item.answer}</p>}
+              {activeIndex === index && <p className="mt-2 text-sm text-gray-600 md:tracking-wide">{item.answer}</p>}
             </div>
           ))}
         </div>

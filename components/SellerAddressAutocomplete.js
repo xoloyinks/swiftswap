@@ -4,6 +4,7 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from 'use-places-autocomplete';
 import useOnclickOutside from 'react-cool-onclickoutside';
+import { Input } from './ui/input';
 
 const AddressAutocomplete = ({ name, value, onChange, placeholder, className }) => {
   const {
@@ -54,7 +55,7 @@ const AddressAutocomplete = ({ name, value, onChange, placeholder, className }) 
         <li
           key={id}
           onClick={handleSelect(suggestion)}
-          className="cursor-pointer hover:bg-gray-200 px-2 py-1"
+          className="px-2 py-1 cursor-pointer hover:bg-gray-200"
         >
           <strong>{main_text}</strong> <small>{secondary_text}</small>
         </li>
@@ -62,8 +63,8 @@ const AddressAutocomplete = ({ name, value, onChange, placeholder, className }) 
     });
 
   return (
-    <div ref={ref} className="relative">
-      <input
+    <div ref={ref} className="relative px-3 md:w-full md:-mx-3 md:px-3">
+      <Input
         value={value}
         onChange={handleInput}
         disabled={!ready}
@@ -71,7 +72,7 @@ const AddressAutocomplete = ({ name, value, onChange, placeholder, className }) 
         className={className}
       />
       {status === "OK" && (
-        <ul className="absolute z-10 bg-white border border-gray-300 rounded shadow-md mt-1 w-full">
+        <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-md">
           {renderSuggestions()}
         </ul>
       )}

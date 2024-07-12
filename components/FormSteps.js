@@ -45,7 +45,7 @@ const BuyerInfo = () => {
     <>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className=''>
-                <h2 className="py-3 mb-4 text-base font-semibold text-black">Buyer's Information</h2>
+                <h2 className="py-3 mb-4 text-base font-semibold text-black">Buyer&apos;s Information</h2>
                 <Input type="text" name="buyerName" autoComplete="off" value={formData.buyerName} onChange={handleChange} placeholder="Name" className={`w-full p-2 border ${errors.buyerName ? 'border-red-500' : 'border-gray-300'} rounded mb-4`} required />
                 <div class="flex flex-wrap -mx-3">
                   <div class="w-full md:w-1/2 px-3 sm:mb-6 md:mb-0">
@@ -283,7 +283,7 @@ const steps = [{
                   {steps.map((step, index) => <TabsTrigger key={index} value={`${step.tag}`}>{step.title}</TabsTrigger> )}
                 </TabsList>
                 {
-                  steps.map((step, index) => <TabsContent value={`${step.tag}`}>{step.content}</TabsContent>)
+                  steps.map((step, index) => <TabsContent key={index} value={`${step.tag}`}>{step.content}</TabsContent>)
                 }
                 
                 <TabsContent value="password">Change your password here.</TabsContent>

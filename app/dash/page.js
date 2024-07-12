@@ -190,35 +190,35 @@ const Dashboard = () => {
   return (
     <div className="">
       <NavBar />
-      <div className="pt-16 min-h-screen bg-gray-100 p-8">
-        <h1 className="text-3xl font-bold text-center mb-8">Delivery Dashboard</h1>
-        <div className="bg-white p-6 rounded shadow-md mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Today's Deliveries</h2>
+      <div className="min-h-screen p-8 pt-16 bg-gray-100">
+        <h1 className="mb-8 text-3xl font-bold text-center">Delivery Dashboard</h1>
+        <div className="p-6 mb-8 bg-white rounded shadow-md">
+          <h2 className="mb-4 text-2xl font-semibold">Today&apos;s Deliveries</h2>
           <div className="overflow-x-auto">
             <table className="min-w-full border-collapse">
               <thead>
                 <tr>
-                  <th className="border p-2">ID</th>
-                  <th className="border p-2">Date</th>
-                  <th className="border p-2">Location</th>
-                  <th className="border p-2">Distance</th>
-                  <th className="border p-2">Status</th>
-                  <th className="border p-2">Delivery Image</th>
-                  <th className="border p-2">Actions</th>
+                  <th className="p-2 border">ID</th>
+                  <th className="p-2 border">Date</th>
+                  <th className="p-2 border">Location</th>
+                  <th className="p-2 border">Distance</th>
+                  <th className="p-2 border">Status</th>
+                  <th className="p-2 border">Delivery Image</th>
+                  <th className="p-2 border">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {deliveries.map((delivery) => (
                   <tr key={delivery.id} onClick={() => handleDeliveryClick(delivery)} className="cursor-pointer">
-                    <td className="border p-2 text-center">{delivery.id}</td>
-                    <td className="border p-2 text-center">{delivery.date}</td>
-                    <td className="border p-2 text-center">{delivery.location}</td>
-                    <td className="border p-2 text-center">{delivery.distance}</td>
+                    <td className="p-2 text-center border">{delivery.id}</td>
+                    <td className="p-2 text-center border">{delivery.date}</td>
+                    <td className="p-2 text-center border">{delivery.location}</td>
+                    <td className="p-2 text-center border">{delivery.distance}</td>
                     <td className={`border p-2 text-center ${delivery.status === 'Pending' ? 'text-black' : delivery.status === 'On Route' ? 'text-orange-500' : 'text-green-500'}`}>{delivery.status}</td>
-                    <td className="border p-2 text-center">
-                      {delivery.image ? <img src={delivery.image} alt="Delivery" className="w-16 h-16 object-cover" /> : 'No Image'}
+                    <td className="p-2 text-center border">
+                      {delivery.image ? <img src={delivery.image} alt="Delivery" className="object-cover w-16 h-16" /> : 'No Image'}
                     </td>
-                    <td className="border p-2 text-center">
+                    <td className="p-2 text-center border">
                       <select
                         value={delivery.status}
                         onChange={(e) => handleStatusChange(delivery.id, e.target.value)}
@@ -239,17 +239,17 @@ const Dashboard = () => {
           </div>
         </div>
         {isModalOpen && selectedDelivery && (
-          <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-            <div className="bg-white p-6 rounded shadow-md w-full max-w-lg relative">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+            <div className="relative w-full max-w-lg p-6 bg-white rounded shadow-md">
               <button
                 onClick={handleCloseModal}
-                className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+                className="absolute text-gray-600 top-2 right-2 hover:text-gray-900"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
-              <h2 className="text-2xl font-semibold mb-4">Delivery Details</h2>
+              <h2 className="mb-4 text-2xl font-semibold">Delivery Details</h2>
               <p><strong>ID:</strong> {selectedDelivery.id}</p>
               <p><strong>Date:</strong> {selectedDelivery.date}</p>
               <p><strong>Location:</strong> {selectedDelivery.location}</p>
@@ -270,71 +270,71 @@ const Dashboard = () => {
                 <p><strong>Address:</strong> {selectedDelivery.location}</p>
                 <p><strong>Notes:</strong> Leave at the front door</p>
               </div>
-              <div className="mt-4 flex justify-end space-x-4">
-                <button onClick={() => handleCancelDelivery(selectedDelivery.id)} className="py-2 px-4 bg-red-500 text-white rounded hover:bg-red-700">Cancel Delivery</button>
-                {/* <button onClick={() => setIsRescheduleModalOpen(true)} className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700">Reschedule Delivery</button> */}
+              <div className="flex justify-end mt-4 space-x-4">
+                <button onClick={() => handleCancelDelivery(selectedDelivery.id)} className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700">Cancel Delivery</button>
+                {/* <button onClick={() => setIsRescheduleModalOpen(true)} className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">Reschedule Delivery</button> */}
               </div>
             </div>
           </div>
         )}
         {isPictureModalOpen && (
-          <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-            <div className="bg-white p-6 rounded shadow-md w-full max-w-lg relative">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+            <div className="relative w-full max-w-lg p-6 bg-white rounded shadow-md">
               <button
                 onClick={handlePictureModalClose}
-                className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+                className="absolute text-gray-600 top-2 right-2 hover:text-gray-900"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
-              <h2 className="text-2xl font-semibold mb-4">Take a Picture of the Package</h2>
+              <h2 className="mb-4 text-2xl font-semibold">Take a Picture of the Package</h2>
               <input type="file" accept="image/*" onChange={handlePictureChange} className="mb-4" />
-              {deliveryImage && <img src={deliveryImage} alt="Delivery" className="w-full h-48 object-cover mb-4" />}
+              {deliveryImage && <img src={deliveryImage} alt="Delivery" className="object-cover w-full h-48 mb-4" />}
               <button onClick={handleSubmitPicture} className="w-full py-2 px-4 bg-[#023e8a] text-white rounded hover:bg-dark">Submit</button>
             </div>
           </div>
         )}
         {isRescheduleModalOpen && (
-          <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-            <div className="bg-white p-6 rounded shadow-md w-full max-w-lg relative">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+            <div className="relative w-full max-w-lg p-6 bg-white rounded shadow-md">
               <button
                 onClick={handleRescheduleModalClose}
-                className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+                className="absolute text-gray-600 top-2 right-2 hover:text-gray-900"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
-              <h2 className="text-2xl font-semibold mb-4">Reschedule Delivery</h2>
+              <h2 className="mb-4 text-2xl font-semibold">Reschedule Delivery</h2>
               <input
                 type="date"
                 value={rescheduleDate}
                 onChange={(e) => setRescheduleDate(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
               />
               <button onClick={handleRescheduleDelivery} className="w-full py-2 px-4 bg-[#023e8a] text-white rounded hover:bg-dark">Submit</button>
             </div>
           </div>
         )}
         {isEditModalOpen && (
-          <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-            <div className="bg-white p-6 rounded shadow-md w-full max-w-lg relative">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+            <div className="relative w-full max-w-lg p-6 bg-white rounded shadow-md">
               <button
                 onClick={handleEditModalClose}
-                className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+                className="absolute text-gray-600 top-2 right-2 hover:text-gray-900"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
-              <h2 className="text-2xl font-semibold mb-4">Edit Delivery Details</h2>
+              <h2 className="mb-4 text-2xl font-semibold">Edit Delivery Details</h2>
               <input
                 type="text"
                 name="location"
                 value={editDeliveryDetails.location}
                 onChange={handleEditDeliveryChange}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Location"
               />
               <input
@@ -342,7 +342,7 @@ const Dashboard = () => {
                 name="distance"
                 value={editDeliveryDetails.distance}
                 onChange={handleEditDeliveryChange}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Distance"
               />
               <button onClick={handleEditDeliverySubmit} className="w-full py-2 px-4 bg-[#023e8a] text-white rounded hover:bg-dark">Submit</button>
@@ -350,23 +350,23 @@ const Dashboard = () => {
           </div>
         )}
         {isEditOrderModalOpen && (
-          <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-            <div className="bg-white p-6 rounded w-full max-w-lg relative">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+            <div className="relative w-full max-w-lg p-6 bg-white rounded">
               <button
                 onClick={handleEditOrderModalClose}
-                className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+                className="absolute text-gray-600 top-2 right-2 hover:text-gray-900"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
-              <h2 className="text-2xl font-semibold mb-4">Edit Order Details</h2>
+              <h2 className="mb-4 text-2xl font-semibold">Edit Order Details</h2>
               <input
                 type="text"
                 name="buyerName"
                 value={editOrderDetails.buyerName}
                 onChange={handleEditOrderChange}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Buyer Name"
               />
               <input
@@ -374,7 +374,7 @@ const Dashboard = () => {
                 name="buyerEmail"
                 value={editOrderDetails.buyerEmail}
                 onChange={handleEditOrderChange}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Buyer Email"
               />
               <input
@@ -382,7 +382,7 @@ const Dashboard = () => {
                 name="buyerPhone"
                 value={editOrderDetails.buyerPhone}
                 onChange={handleEditOrderChange}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Buyer Phone"
               />
               <input
@@ -390,7 +390,7 @@ const Dashboard = () => {
                 name="deliveryAddress"
                 value={editOrderDetails.deliveryAddress}
                 onChange={handleEditOrderChange}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Delivery Address"
               />
               <input
@@ -398,14 +398,14 @@ const Dashboard = () => {
                 name="itemPrice"
                 value={editOrderDetails.itemPrice}
                 onChange={handleEditOrderChange}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Item Price"
               />
               <textarea
                 name="itemDescription"
                 value={editOrderDetails.itemDescription}
                 onChange={handleEditOrderChange}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Item Description"
               />
               <input
@@ -413,45 +413,45 @@ const Dashboard = () => {
                 name="itemLink"
                 value={editOrderDetails.itemLink}
                 onChange={handleEditOrderChange}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Item Link"
               />
               <button onClick={handleEditOrderSubmit} className="w-full py-2 px-4 bg-[#023e8a] text-white rounded hover:bg-dark">Submit</button>
             </div>
           </div>
         )}
-        <div className="bg-white p-6 rounded mb-8">
+        <div className="p-6 mb-8 bg-white rounded">
           <Unschedule_Box />
         </div>
-        <div className="bg-white p-6 rounded mb-8">
-          <h2 className="text-2xl font-semibold mb-4">New Orders</h2>
+        <div className="p-6 mb-8 bg-white rounded">
+          <h2 className="mb-4 text-2xl font-semibold">New Orders</h2>
           <div className="overflow-x-auto">
             <table className="min-w-full border-collapse">
               <thead>
                 <tr>
-                  <th className="border p-2">ID</th>
-                  <th className="border p-2">Buyer Name</th>
-                  <th className="border p-2">Buyer Email</th>
-                  <th className="border p-2">Buyer Phone</th>
-                  <th className="border p-2">Delivery Address</th>
-                  <th className="border p-2">Item Price</th>
-                  <th className="border p-2">Item Description</th>
-                  <th className="border p-2">Item Link</th>
-                  <th className="border p-2">Actions</th>
+                  <th className="p-2 border">ID</th>
+                  <th className="p-2 border">Buyer Name</th>
+                  <th className="p-2 border">Buyer Email</th>
+                  <th className="p-2 border">Buyer Phone</th>
+                  <th className="p-2 border">Delivery Address</th>
+                  <th className="p-2 border">Item Price</th>
+                  <th className="p-2 border">Item Description</th>
+                  <th className="p-2 border">Item Link</th>
+                  <th className="p-2 border">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {newOrders.map((order) => (
                   <tr key={order.id} className="cursor-pointer">
-                    <td className="border p-2 text-center">{order.id}</td>
-                    <td className="border p-2 text-center">{order.buyerName}</td>
-                    <td className="border p-2 text-center">{order.buyerEmail}</td>
-                    <td className="border p-2 text-center">{order.buyerPhone}</td>
-                    <td className="border p-2 text-center">{order.deliveryAddress}</td>
-                    <td className="border p-2 text-center">{order.itemPrice}</td>
-                    <td className="border p-2 text-center">{order.itemDescription}</td>
-                    <td className="border p-2 text-center"><a href={order.itemLink} target="_blank" rel="noopener noreferrer">{order.itemLink}</a></td>
-                    <td className="border p-2 text-center">
+                    <td className="p-2 text-center border">{order.id}</td>
+                    <td className="p-2 text-center border">{order.buyerName}</td>
+                    <td className="p-2 text-center border">{order.buyerEmail}</td>
+                    <td className="p-2 text-center border">{order.buyerPhone}</td>
+                    <td className="p-2 text-center border">{order.deliveryAddress}</td>
+                    <td className="p-2 text-center border">{order.itemPrice}</td>
+                    <td className="p-2 text-center border">{order.itemDescription}</td>
+                    <td className="p-2 text-center border"><a href={order.itemLink} target="_blank" rel="noopener noreferrer">{order.itemLink}</a></td>
+                    <td className="p-2 text-center border">
                       <button
                         onClick={() => {
                           setSelectedOrder(order);
@@ -467,13 +467,13 @@ const Dashboard = () => {
                           });
                           setIsEditOrderModalOpen(true);
                         }}
-                        className="bg-blue-500 text-white px-2 py-1 rounded"
+                        className="px-2 py-1 text-white bg-blue-500 rounded"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDeleteOrder(order.id)}
-                        className="bg-red-500 text-white px-2 py-1 rounded"
+                        className="px-2 py-1 text-white bg-red-500 rounded"
                       >
                         Delete
                       </button>
@@ -484,7 +484,7 @@ const Dashboard = () => {
             </table>
           </div>
         </div>
-        <div className="bg-white p-6 rounded mb-8">
+        <div className="p-6 mb-8 bg-white rounded">
           <SellerPartners />
         </div>
       </div>

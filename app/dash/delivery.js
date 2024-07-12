@@ -51,33 +51,33 @@ const DeliveryArea = () => {
   return (
     <div>
       <NavBar />
-      <div className="pt-16 min-h-screen bg-gray-100 p-8">
+      <div className="min-h-screen p-8 pt-16 bg-gray-100">
         <div className="container mx-auto">
-          <h1 className="text-3xl font-bold text-center mb-8">Today's Deliveries</h1>
-          <div className="bg-white p-6 rounded shadow-md">
-            <h2 className="text-2xl font-semibold mb-4">Deliveries for {today}</h2>
+          <h1 className="mb-8 text-3xl font-bold text-center">Today&apos;s Deliveries</h1>
+          <div className="p-6 bg-white rounded shadow-md">
+            <h2 className="mb-4 text-2xl font-semibold">Deliveries for {today}</h2>
             <table className="w-full border-collapse">
               <thead>
                 <tr>
-                  <th className="border p-2">ID</th>
-                  <th className="border p-2">Time</th>
-                  <th className="border p-2">Location</th>
-                  <th className="border p-2">Distance</th>
-                  <th className="border p-2">Amount</th>
-                  <th className="border p-2">Status</th>
-                  <th className="border p-2">Actions</th>
+                  <th className="p-2 border">ID</th>
+                  <th className="p-2 border">Time</th>
+                  <th className="p-2 border">Location</th>
+                  <th className="p-2 border">Distance</th>
+                  <th className="p-2 border">Amount</th>
+                  <th className="p-2 border">Status</th>
+                  <th className="p-2 border">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {todayDeliveries.map((delivery) => (
                   <tr key={delivery.id}>
-                    <td className="border p-2 text-center">{delivery.id}</td>
-                    <td className="border p-2 text-center">{delivery.time}</td>
-                    <td className="border p-2 text-center">{delivery.location}</td>
-                    <td className="border p-2 text-center">{delivery.distance}</td>
-                    <td className="border p-2 text-center">{delivery.amount}</td>
-                    <td className="border p-2 text-center">{delivery.status}</td>
-                    <td className="border p-2 text-center">
+                    <td className="p-2 text-center border">{delivery.id}</td>
+                    <td className="p-2 text-center border">{delivery.time}</td>
+                    <td className="p-2 text-center border">{delivery.location}</td>
+                    <td className="p-2 text-center border">{delivery.distance}</td>
+                    <td className="p-2 text-center border">{delivery.amount}</td>
+                    <td className="p-2 text-center border">{delivery.status}</td>
+                    <td className="p-2 text-center border">
                       <select
                         value={delivery.status}
                         onChange={(e) =>

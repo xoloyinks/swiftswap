@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const OrderSummary = ({ location }) => {
-  const [orderDetails, setOrderDetails] = useState(location.state.orderDetails);
+  // const [orderDetails, setOrderDetails] = useState(location.state.orderDetails);
   const [distance, setDistance] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
 

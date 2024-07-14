@@ -7,11 +7,11 @@ const OrderSummary = ({ location }) => {
   const [distance, setDistance] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
 
-  useEffect(() => {
-    calculateDistance();
-  }, []);
+  // useEffect(() => {
+  //   calculateDistance();
+  // }, []);
 
-  const calculateDistance = async () => {
+  // const calculateDistance = async () => {
     // try {
     //   const response = await axios.get('/api/getDistance', {
     //     params: {
@@ -27,7 +27,7 @@ const OrderSummary = ({ location }) => {
     // } catch (error) {
     //   console.error('Error calculating distance:', error);
     // }
-  };
+  // };
 
   return (
     <div className="min-h-screen p-8 bg-gray-100">

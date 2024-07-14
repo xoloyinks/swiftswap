@@ -12,21 +12,21 @@ const OrderSummary = ({ location }) => {
   }, []);
 
   const calculateDistance = async () => {
-    try {
-      const response = await axios.get('/api/getDistance', {
-        params: {
-          pickupAddress: orderDetails.pickupAddress,
-          deliveryAddress: orderDetails.deliveryAddress,
-        },
-      });
+    // try {
+    //   const response = await axios.get('/api/getDistance', {
+    //     params: {
+    //       pickupAddress: orderDetails.pickupAddress,
+    //       deliveryAddress: orderDetails.deliveryAddress,
+    //     },
+    //   });
 
-      const distanceInMeters = response.data.distanceInMeters;
-      const distanceInMiles = distanceInMeters / 1609.34;
-      setDistance(distanceInMiles.toFixed(2));
-      setTotalCost((distanceInMiles * 1.50).toFixed(2)); // Assuming $1.50 per mile
-    } catch (error) {
-      console.error('Error calculating distance:', error);
-    }
+    //   const distanceInMeters = response.data.distanceInMeters;
+    //   const distanceInMiles = distanceInMeters / 1609.34;
+    //   setDistance(distanceInMiles.toFixed(2));
+    //   setTotalCost((distanceInMiles * 1.50).toFixed(2)); // Assuming $1.50 per mile
+    // } catch (error) {
+    //   console.error('Error calculating distance:', error);
+    // }
   };
 
   return (

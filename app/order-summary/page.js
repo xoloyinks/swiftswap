@@ -37,7 +37,7 @@ const OrderSummary = ({ location }) => {
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold">Summary</h2>
             <div className="space-y-2">
-              <p><strong>Buyer Name:</strong> {orderDetails.buyerName}</p>
+              {/* <p><strong>Buyer Name:</strong> {orderDetails.buyerName}</p>
               <p><strong>Buyer Email:</strong> {orderDetails.buyerEmail}</p>
               <p><strong>Buyer Phone:</strong> {orderDetails.buyerPhone}</p>
               <p><strong>Pick-Up Address:</strong> {orderDetails.pickupAddress}</p>
@@ -46,7 +46,7 @@ const OrderSummary = ({ location }) => {
               <p><strong>Item Price:</strong> ${orderDetails.itemPrice}</p>
               <p><strong>Distance:</strong> {distance} miles</p>
               <p><strong>Rate per Mile:</strong> $1.50</p>
-              <p><strong>Total Cost:</strong> ${totalCost}</p>
+              <p><strong>Total Cost:</strong> ${totalCost}</p> */}
             </div>
             <div className="mt-4">
               <h2 className="text-2xl font-semibold">Payment</h2>
